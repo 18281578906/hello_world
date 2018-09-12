@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>指令</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <!--条件指令 删除标签 判断元素是否可见-->
+    <p v-if="seen">现在你看见我了</p>
+    <button @click="handleClick">toggle</button>
+<!--v-show 不会删除标签只隐藏-->
+    <p v-if="seen">现在你看见我了</p>
+    <button @click="handleClick">toggle</button>
+</div>
+
+<div id="fortest">
+    <ol>
+        <li v-for="(todo,index) in todos" :key="index">
+            {{todo.text}}
+        </li>
+    </ol>
+</div>
+
+<script>
+    new Vue({
+        el:"#root",
+        data:{
+            seen:true,
+        },
+        methods:{
+            handleClick:function () {
+                this.seen= ! this.seen;
+            }
+        }
+    })
+
+    new Vue({
+        el:"#fortest",
+        data: {
+            todos:[
+            {text:'学习niddk'},
+            {text:'学习叫偶可是'},
+            {text:'项目创建'},
+            ]}
+
+    })
+</script>
+</body>
+</html>

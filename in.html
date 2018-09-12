@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>vue入门</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="fname"><!--挂载点-->
+
+    <!--//模板-->
+
+    <div v-on:click="handleClick">{{msg}}</div><!--点击事件-->
+    <div @click="handleClick">{{msg}}</div><!--点击事件-->
+    <!--<h2>{{number}}</h2>-->
+    <h1 v-text="content"></h1>
+    <h2 v-html="content"></h2>
+</div>
+
+<script>
+    new Vue({
+        el:"#fname",//元素名称  vue实例的挂载点
+        // template:'  <h1>{{msg}}</h1>',//模板
+        data:{
+            msg:"welcome you",//返回数据
+            number:123,
+            content:"<h1>hello</h1>"
+        },
+        methods:{
+            handleClick:function () {
+                alert(111);
+                this.msg="world";//改变msg里面的数据
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

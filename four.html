@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <ul>
+        <!--组件名-->
+        <todo-item
+         v-for="item in groceryList"
+         v-bind:todo="item"
+         v-key:key="item.id"
+        >
+
+        </todo-item>
+    </ul>
+
+</div>
+<script>
+    Vue.component('todo-item',{
+        props:['todo'],
+        template:'<li>{{ todo.text}}</li>',
+    })
+    var rooter=new Vue({
+        el:"#root",
+        data:{
+            groceryList:[
+                {id:0,text:'蔬菜'},
+                {id:1,text:'黄瓜'},
+                {id:2,text:'水果'},
+            ]
+        },
+    })
+
+</script>
+</body>
+</html>

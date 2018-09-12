@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>register</title>
+    <link rel="stylesheet" href="css/register.css">
+    <script src="js/vue.js"></script>
+    <script src="js/jquery-3.2.1%20(2).js"></script>
+</head>
+<body>
+<div id="formList">
+    <form>
+        <ul>
+            <li><label for="userName">用户名：</label>
+                <input type="text" id="userName" v-model="userName"></li>
+            <li> <label for="password">密码 ：  </label>
+                <input type="text" id="password" v-model="password"></li>
+            <li> <label for="password">确认密码：</label>
+                <input type="text" id="ComPassword" v-model="confirmPass"></li>
+            <li> <input type="submit" id="submit" value="注册" @click="checkInput"></li>
+        </ul>
+    </form>
+</div>
+<script src="js/register.js"></script>
+</body>
+</html>

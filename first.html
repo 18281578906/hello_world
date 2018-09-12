@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>属性绑定和双向数据绑定</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <!--属性绑定 v-bind: or :-->
+    <div v-bind:title="title">hello word</div>
+    <div :title="title">hello word</div>
+
+
+    <!--双向数据绑定 v-model-->
+    <input v-model="content"/>
+    <div>{{content}}</div>
+</div>
+
+<script>
+    new Vue({
+        el:"#root",
+        data:{
+            title:"页面加载于"+new Date().toLocaleString(),
+            content:"this is a content",
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性与侦监听器</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    姓 <input v-model="firstName">
+    名 <input v-model="lastName">
+    <div>{{fullName}}</div>
+    <div>{{count}}</div>
+</div>
+
+<script>
+    new Vue({
+        el:"#root",
+        data:{
+            firstName:'',
+            lastName:'',
+            count:0,
+     },
+        computed:{//计算
+            fullName:function () {
+                return this.firstName+' '+this.lastName;
+            }
+        },
+        watch:{//侦监听器     观察发生变化时的操作
+            firstName:function () {
+                this.count++;
+            },
+            lastName:function () {
+                this.count++;
+            }
+
+        }
+    })
+</script>
+</body>
+</html>
